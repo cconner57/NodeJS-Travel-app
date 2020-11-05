@@ -1,4 +1,5 @@
 const express = require('express');
+const { contactUser, contactPass } = require('./config');
 
 const router = express.Router();
 
@@ -8,8 +9,8 @@ router.post('/', (req, res) => {
 	const transporter = nodemailer.createTransport({
 		host: 'Gmail',
 		auth: {
-			user: 'covidtrackerapp1@gmail.com',
-			pass: 'wynca6-jahveb-Dezqeh',
+			user: contactUser,
+			pass: contactPass,
 		},
 	});
 	const name = req.body.name;

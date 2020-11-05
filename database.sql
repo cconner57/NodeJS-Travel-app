@@ -30,7 +30,7 @@ CREATE TABLE post(
     title VARCHAR(100) NOT NULL,
     message VARCHAR(500) NOT NULL,
     user_id INTEGER NOT NULL REFERENCES users(id),
-    category_id INTEGER NOT NULL REFERENCES thread(id),
+    category_id INTEGER NOT NULL REFERENCES category(id),
     created_at TIMESTAMP DEFAULT current_timestamp
 );
 

@@ -12,11 +12,16 @@ if (process.env.NODE_ENV === 'Rhodes') {
 	DB_URI = process.env.DATABASE_URL || 'travel';
 }
 
+const contactUser = 'covidtrackerapp1@gmail.com'
+const contactPass = 'wynca6-jahveb-Dezqeh'
+
 const BCRYPT_WORK_FACTOR = 12;
 
 module.exports = {
 	SECRET_KEY,
 	PORT,
 	DB_URI,
-	BCRYPT_WORK_FACTOR
+	BCRYPT_WORK_FACTOR,
+	contactUser,
+	contactPass
 };
