@@ -1,8 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const db = require('./db/index');
-const { SECRET_KEY } = require('./config');
-const ExpressError = require('./helpers/ExpressError');
+// const { SECRET_KEY } = require('./config');
 
 const contactRoutes = require('./contactMailer');
 const usersRoutes = require('./routes/users');
@@ -23,15 +22,6 @@ app.use('/:id/signup', usersRoutes);
 app.use('/:id/login', authRoutes);
 app.use('/bucket-list', bucketlistRoutes);
 app.use('/discussion', discussionRoutes);
-
-/** 404 handler */
-
-// app.use(function (req, res, next) {
-// 	const err = new ExpressError('Not Found', 404);
-// 	return next(err);
-// });
-
-/** general error handler */
 
 app.use(function (err, req, res, next) {
 	res.status(err.status || 500);
