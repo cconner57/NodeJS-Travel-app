@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.route('/').post(async (req, res, next) => {
 	try {
+		console.log('users route');
 		const { email, password, first_name, last_name } = req.body;
 		const hashedPassword = await bcrypt.hash(password, 10);
 		const results = await db.query(

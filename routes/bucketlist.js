@@ -6,6 +6,7 @@ const router = express.Router();
 router
 	.route('/')
 	.get(async (req, res, next) => {
+		console.log('bucket-list route')
 		try {
 			const results = await db.query(
 				'SELECT map.id, map.location, map.date, map.plans, users.email FROM map INNER JOIN users ON map.user_id = users.id'
