@@ -26,7 +26,8 @@ app.use('/discussion', discussionRoutes);
 app.use(function (err, req, res, next) {
 	res.status(err.status || 500);
 	console.error(err.stack);
-
+	console.log('error???')
+	
 	return res.json({
 		status: err.status,
 		message: err.message,
