@@ -7,7 +7,6 @@ router
 	.route('/')
 	.get(async (req, res, next) => {
 		try {
-			console.log('discussion route')
 			const categoryResults = await db.query('SELECT id, name FROM category');
 			const postResults = await db.query('SELECT * FROM post');
 			const commentResults = await db.query('SELECT * FROM comment');
