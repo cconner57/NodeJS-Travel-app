@@ -6,10 +6,11 @@ const router = express.Router();
 router
 	.route('/')
 	.get(async (req, res, next) => {
-		console.log('bucket-list route')
 		try {
+			const { ID } = req.query;
 			const results = await db.query(
-				'SELECT map.id, map.location, map.date, map.plans, users.id FROM map INNER JOIN users ON map.user_id = users.id'
+				'SELECT map.id, map.location, map.date, map.plans FROM map WHERE map.user_id = $1',
+				[ID]
 			);
 			res.status(200).json({
 				status: 'success',
@@ -18,12 +19,12 @@ router
 					markers: results.rows,
 				},
 			});
+			console.log();
 		} catch (err) {
 			return next(err);
 		}
 	})
 	.post(async (req, res, next) => {
-		console.log(req.body);
 		try {
 			const { date, plans, location, zoom, user_id } = req.body;
 			const results = await db.query(
@@ -33,7 +34,7 @@ router
 			res.status(201).json({
 				status: 'success',
 				data: {
-					threads: results.rows[0],
+					markers: results.rows[0],
 				},
 			});
 		} catch (error) {

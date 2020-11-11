@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.route('/').post(async (req, res, next) => {
 	try {
-		console.log('auth route');
 		const { email, password } = req.body;
 		const result = await db.query(
 			'SELECT password FROM users WHERE email = $1',
