@@ -33,7 +33,6 @@ router
 		}
 	})
 	.post(async (req, res, next) => {
-		console.log(req.body);
 		if (req.body.title) {
 			try {
 				const { title, content, user_id, category_id } = req.body;
