@@ -40,7 +40,6 @@ router
 					'INSERT INTO post ( title, message, user_id, category_id ) VALUES ($1, $2, $3, $4) RETURNING *',
 					[title, content, user_id, category_id]
 				);
-				console.log(results);
 				res.status(201).json({
 					status: 'success',
 					data: {
@@ -57,7 +56,6 @@ router
 					'INSERT INTO comment (message, user_id, post_id ) VALUES ($1, $2, $3) RETURNING *',
 					[comment, user_id, post_id]
 				);
-				console.log(results);
 				res.status(201).json({
 					status: 'success',
 					data: {

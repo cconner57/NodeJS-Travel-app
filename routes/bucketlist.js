@@ -19,7 +19,6 @@ router
 					markers: results.rows,
 				},
 			});
-			console.log();
 		} catch (err) {
 			return next(err);
 		}
